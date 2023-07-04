@@ -1,0 +1,128 @@
+<html>
+  <head>
+    <style>
+      :root {
+        --border: .1em dashed black
+      }
+      body {
+        font-family: Arial, Helvetica;
+      }
+      table {
+        width: 100%;
+        height: 100%;
+      }
+      td {
+        cursor: hand;
+        padding: 1em;
+        text-align: center;
+        font-size: 2vw;
+      }
+      .light {
+        color: #DFDEE0;
+      }
+      .hundred {
+        font-weight: bolder;
+        border-right: var(--border);
+        border-left: var(--border);
+
+      }
+      .hundred-top {
+        border-right: var(--border);
+        border-left: var(--border);
+        border-top: var(--border);
+      }
+      .hundred-bottom {
+        border-right: var(--border);
+        border-left: var(--border);
+        border-bottom: var(--border);
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("td").forEach((cell) => {
+          console.log("cell");
+          cell.addEventListener("click", (e) => {
+            const selection = window.getSelection();
+            const range = document.createRange();
+            range.selectNodeContents(cell);
+            selection.removeAllRanges();
+            selection.addRange(range);
+            document.execCommand("Copy");
+            selection.removeAllRanges();
+
+            const original = cell.textContent;
+            cell.textContent = "Copied!";
+            setTimeout(() => {
+              cell.textContent = original;
+            }, 1200);
+          });
+        });
+      });
+    </script>
+  </head>
+</html>
+<table>
+  <tr>
+    <td style="background-color: #b0e7ff"><div>#b0e7ff</div></td>
+    <td style="background-color: #83d3ff"><div>#83d3ff</div></td>
+    <td style="background-color: #6cc4ff"><div>#6cc4ff</div></td>
+    <td style="background-color: #50b0ff"><div>#50b0ff</div></td>
+    <td class="hundred hundred-top" style="background-color: #2E9BF4"><div>#2E9BF4</div></td>
+    <td class="light" style="background-color: #188eef"><div>#188eef</div></td>
+    <td class="light" style="background-color: #007dd1"><div>#007dd1</div></td>
+  </tr>
+  <tr>
+    <td style="background-color: #b3ffc1"><div>#b3ffc1</div></td>
+    <td style="background-color: #85ff9f"><div>#85ff9f</div></td>
+    <td style="background-color: #52ff7b"><div>#52ff7b</div></td>
+    <td style="background-color: #2ff462"><div>#2ff462</div></td>
+    <td class="hundred" style="background-color: #DD1853"><div>#DD1853</div></td>
+    <td class="light" style="background-color: #0dd341"><div>#0dd341</div></td>
+    <td class="light" style="background-color: #05af2d"><div>#05af2d</div></td>
+  </tr>
+  <tr>
+    <td style="background-color: #b6b6fc"><div>#b6b6fc</div></td>
+    <td style="background-color: #9d9dfc"><div>#9d9dfc</div></td>
+    <td style="background-color: #8888ff"><div>#8888ff</div></td>
+    <td style="background-color: #7373ff"><div>#7373ff</div></td>
+    <td  class="hundred" style="background-color: #39D3A9"><div>#39D3A9</div></td>
+    <td class="light" style="background-color: #4545f4"><div>#4545f4</div></td>
+    <td class="light" style="background-color: #3535e5"><div>#3535e5</div></td>
+  </tr>
+  <tr>
+    <td style="background-color: #ffb0b0"><div>#ffb0b0</div></td>
+    <td style="background-color: #ff9292"><div>#ff9292</div></td>
+    <td style="background-color: #ff7878"><div>#ff7878</div></td>
+    <td style="background-color: #ff5757"><div>#ff5757</div></td>
+    <td class="hundred" style="background-color: #7309FF"><div>#7309FF</div></td>
+    <td class="light" style="background-color: #f22020"><div>#f22020</div></td>
+    <td class="light" style="background-color: #d80e0e"><div>#d80e0e</div></td>
+  </tr>
+  <tr>
+    <td style="background-color: #ffc49c"><div>#ffc49c</div></td>
+    <td style="background-color: #ffb883"><div>#ffb883</div></td>
+    <td style="background-color: #ffae6c"><div>#ffae6c</div></td>
+    <td style="background-color: #ffa655"><div>#ffa655</div></td>
+    <td class="hundred" style="background-color: #F2D31C"><div>#F2D31C</div></td>
+    <td class="light" style="background-color: #f98419"><div>#f98419</div></td>
+    <td class="light" style="background-color: #ea6c06"><div>#ea6c06</div></td>
+  </tr>
+  <tr>
+    <td style="background-color: #999ca5"><div>#999CA5</div></td>
+    <td class="light" style="background-color: #6c6e7d"><div>#6C6E7D</div></td>
+    <td class="light" style="background-color: #434657"><div>#434657</div></td>
+    <td class="light" style="background-color: #1C1C28"><div>#1C1C28</div></td>
+    <td class="hundred light" style="background-color: #121015"><div>#121015</div></td>
+    <td class="light" style="background-color: #181b2a"><div>#181B2A</div></td>
+    <td class="light" style="background-color: #0e101a"><div>#0E101A</div></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="hundred hundred-bottom">100%</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
