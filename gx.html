@@ -1,0 +1,149 @@
+<html>
+  <head>
+    <style>
+      :root {
+        --border: 0.1em dashed black;
+      }
+      body {
+        font-family: Arial, Helvetica;
+      }
+      table {
+        width: 100%;
+        height: 100%;
+      }
+      td {
+        cursor: hand;
+        padding: 1em;
+        text-align: center;
+        font-size: 2vw;
+      }
+      .light {
+        color: #dfdee0;
+      }
+      .hundred {
+        font-weight: bolder;
+        border-right: var(--border);
+        border-left: var(--border);
+      }
+      .hundred-top {
+        border-right: var(--border);
+        border-left: var(--border);
+        border-top: var(--border);
+      }
+      .hundred-bottom {
+        border-right: var(--border);
+        border-left: var(--border);
+        border-bottom: var(--border);
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("td").forEach((cell) => {
+          console.log("cell");
+          cell.addEventListener("click", (e) => {
+            const selection = window.getSelection();
+            const range = document.createRange();
+            range.selectNodeContents(cell);
+            selection.removeAllRanges();
+            selection.addRange(range);
+            document.execCommand("Copy");
+            selection.removeAllRanges();
+
+            const original = cell.textContent;
+            cell.textContent = "Copied!";
+            setTimeout(() => {
+              cell.textContent = original;
+            }, 1200);
+          });
+        });
+      });
+    </script>
+  </head>
+</html>
+<table>
+  <tr>
+    <td style="background-color: #F9FAFD"><div>Grey/50<br/>#F9FAFD</div></td>
+    <td style="background-color: #F1F4FA"><div>Grey/100<br/>#F1F4FA</div></td>
+    <td style="background-color: #E5EAF6"><div>Grey/200<br/>#E5EAF6</div></td>
+    <td style="background-color: #D8E0F1"><div>Grey/300<br/>#D8E0F1</div></td>
+    <td style="background-color: #BFCCE2"><div>Grey/400<br/>#BFCCE2</div> </td>
+  </tr>
+  <tr>
+    <td style="background-color: #9BA6B7"><div>Grey/500<br/>9BA6B7</div></td>
+    <td class="light" style="background-color: #546982"><div>Grey/600<br/>#546982</div></td>
+    <td class="light" style="background-color: #3A4B5F"><div>Grey/700<br/>#3A4B5F</div></td>
+    <td class="light" style="background-color: #242C34"><div>Grey/800<br/>#242C34</div></td>
+    <td class="light" style="background-color: #131A24"><div>Grey/900<br/>#131A24</div> </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="hundred hundred-top">Primary</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td  style="background-color: #D2F1F0"><div>Primary/50<br/>#D2F1F0</div></td>
+    <td  style="background-color: #C4F1F2"><div>Primary/300<br/>#C4F1F2</div></td>
+    <td  style="background-color: #72D2D6"><div>Primary/500<br/>#72D2D6</div></td>
+    <td class="hundred light" style="background-color: #0FB9B6"><div>Primary/700<br/>#0FB9B6</div></td>
+    <td class="light" style="background-color: #196D80"><div>Primary/900<br/>#196D80</div></td>
+  </tr>
+  <tr>
+    <td style="background-color: #B2D1FF"><div>Secondary/50<br/>#B2D1FF</div></td>
+    <td style="background-color: #519EFF"><div>Secondary/300<br/>#519EFF</div></td>
+    <td style="background-color: #4166E9"><div>Secondary/500<br/>#4166E9</div></td>
+    <td class="hundred light" style="background-color: #2400A7"><div>Secondary/700<br/>#2400A7</div></td>
+    <td class="light" style="background-color: #140075"><div>Secondary/900<br/>#140075</div></td>
+  </tr>
+  <tr>
+    <td style="background-color: #A9FFD7"><div>Success/50<br/>#A9FFD7</div></td>
+    <td style="background-color: #7BFFC2"><div>Success/300<br/>#7BFFC2</div></td>
+    <td style="background-color: #33FD9F"><div>Success/500<br/>#33FD9F</div></td>
+    <td class="hundred light" style="background-color: #23D080"><div>Success/700<br/>#23D080</div></td>
+    <td class="light" style="background-color: #009C54"><div>Success/900<br/>#009C54</div></td>
+  </tr>
+  <tr>
+    <td style="background-color: #FFF4D4"><div>Warning/50<br/>#FFF4D4</div></td>
+    <td style="background-color: #FFE9AA"><div>Warning/300<br/>#FFE9AA</div></td>
+    <td style="background-color: #FFDD7F"><div>Warning/500<br/>#FFDD7F</div></td>
+    <td class="hundred" style="background-color: #FFC612"><div>Warning/700<br/>#FFC612</div></td>
+    <td class="light" style="background-color: #CC9B00"><div>Warning/900<br/>#CC9B00</div></td>
+  </tr>
+  <tr>
+    <td style="background-color: #FCDADC"><div>Error/50<br/>#FCDADC</div></td>
+    <td style="background-color: #F9B687"><div>Error/300<br/>#F9B687</div></td>
+    <td style="background-color: #F69092"><div>Error/500<br/>#F69092</div></td>
+    <td class="hundred light" style="background-color: #F04649"><div>Error/700<br/>#F04649</div></td>
+    <td class="light" style="background-color: #C30003"><div>Error/900<br/>#C30003</div></td>
+  </tr>
+
+  <tr>
+    <td style="background-color: #FFFFFF"><div>White/0<br/>#FFFFFF</div></td>
+    <td class="light" style="background-color: #000000"><div>Black/100<br/>#000000</div></td>
+    <td></td>
+    <td class="hundred"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="hundred hundred-bottom">Primary</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
